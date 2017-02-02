@@ -10,7 +10,7 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => '1f96bb225b40366566a84
 
 $name = date("Ymd_His");
 
-$myfile = fopen($name.".txt", "w") or die(error_get_last());
+$myfile = fopen($name.".txt", "w") or var_dump(error_get_last());
 $txt = $_SERVER['REQUEST_METHOD']."\n";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
