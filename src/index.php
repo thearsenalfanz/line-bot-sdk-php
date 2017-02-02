@@ -9,11 +9,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	$content = file_get_contents('php://input');
 
-	$bot->parseEventRequest($content, $_SERVER['HTTP_X_LINE_SIGNATURE']));
+	$event = $bot->parseEventRequest($content, $_SERVER['HTTP_X_LINE_SIGNATURE']);
 
 
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello');
-$response = $bot->replyMessage('<reply token>', $textMessageBuilder);
+$response = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
 if ($response->isSucceeded()) {
     echo 'Succeeded!';
     return;
