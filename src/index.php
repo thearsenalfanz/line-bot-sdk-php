@@ -9,7 +9,8 @@ $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('P3avdIxyxnYbA4xJmyGCW
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => '1f96bb225b40366566a84317e187ae1c']);
 
 $name = date("Ymd_His");
-$myfile = fopen($name.".txt", "w") or die("Unable to open file!");
+
+$myfile = fopen($name.".txt", "w") or die(error_get_last());
 $txt = $_SERVER['REQUEST_METHOD']."\n";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
