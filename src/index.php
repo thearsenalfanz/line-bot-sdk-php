@@ -3,7 +3,7 @@ $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('P3avdIxyxnYbA4xJmyGCW
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => '1f96bb225b40366566a84317e187ae1c']);
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$content = file_get_contents('php://input');
-	$bot->parseEventRequest($content, $_SERVER['HTTP_X_LINE_SIGNATURE']));
+	$bot->parseEventRequest($content, $_SERVER['HTTP_X_LINE_SIGNATURE']);
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello');
 $response = $bot->replyMessage('<reply token>', $textMessageBuilder);
 if ($response->isSucceeded()) {
