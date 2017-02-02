@@ -2,7 +2,7 @@
 // include('./LINEBot/HTTPClient/CurlHTTPClient.php');
 // include('./LINEBot.php');
 spl_autoload_register(function ($class_name) {
-	$file_name = substr($class_name, 4, -1);
+	$file_name = substr($class_name, 4, strlen($class_name));
 	$file_name = str_replace($file_name,'\\','/');
 	var_dump($class_name);
 	echo "<br><br>";
