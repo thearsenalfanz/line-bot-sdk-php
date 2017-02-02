@@ -18,6 +18,13 @@
 
 namespace LINE\LINEBot\HTTPClient;
 
+spl_autoload_register(function ($class_name) {
+    $file_name = substr($class_name, 12);
+    $file_name = str_replace("\\","/",$file_name);
+    include '..'.$file_name . '.php';
+});
+
+
 use LINE\LINEBot\Constant\Meta;
 use LINE\LINEBot\Exception\CurlExecutionException;
 use LINE\LINEBot\HTTPClient;
