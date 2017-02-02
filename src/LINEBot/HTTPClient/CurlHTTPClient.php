@@ -18,12 +18,10 @@
 
 namespace LINE\LINEBot\HTTPClient;
 
-spl_autoload_register(function ($class_name) {
-    $file_name = substr($class_name, 12);
-    $file_name = str_replace("\\","/",$file_name);
-    include '..'.$file_name . '.php';
-});
-
+include('/../Constant/Meta.php');
+include('/../Exception/CurlExecutionException.php');
+include('/../HTTPClient.php');
+include('/../Response.php');
 
 use LINE\LINEBot\Constant\Meta;
 use LINE\LINEBot\Exception\CurlExecutionException;
@@ -42,7 +40,7 @@ class CurlHTTPClient implements HTTPClient
     /** @var array */
     private $authHeaders;
     /** @var array */
-    private $userAgentHeader = ['User-Agent: LINE-BotSDK-PHP/' . Meta::VERSION];
+    private $userAgentHeader = ['User-Agent: LINE-BotSDK-PHP/'.Meta::VERSION];
 
     /**
      * CurlHTTPClient constructor.
