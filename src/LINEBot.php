@@ -105,7 +105,7 @@ class LINEBot
      * @param string[] $extraTexts Extra text of message.
      * @return Response
      */
-    public function replyText($replyToken, $text, ...$extraTexts)
+    public function replyText($replyToken, $text, $extraTexts)
     {
         $textMessageBuilder = new TextMessageBuilder($text, ...$extraTexts);
         return $this->replyMessage($replyToken, $textMessageBuilder);
@@ -122,6 +122,21 @@ class LINEBot
     {
         return $this->httpClient->post($this->endpointBase . '/v2/bot/message/push', [
             'to' => $to,
+            'messages' => $messageBuilder->buildMessage(),
+        ]);
+    }
+
+    /**
+     * Sends arbitrary message to multi destinations.
+     *
+     * @param array $tos Identifiers of destination.
+     * @param MessageBuilder $messageBuilder Message builder to send.
+     * @return Response
+     */
+    public function multicast(array $tos, MessageBuilder $messageBuilder)
+    {
+        return $this->httpClient->post($this->endpointBase . '/v2/bot/message/multicast', [
+            'to' => $tos,
             'messages' => $messageBuilder->buildMessage(),
         ]);
     }
