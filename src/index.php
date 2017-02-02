@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$content = file_get_contents('php://input');
 	$event = $bot->parseEventRequest($content, $_SERVER['HTTP_X_LINE_SIGNATURE']);
 // $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello');
-$response = $bot->replyMessage($event['replyToken'], ("hello!");
+$response = $bot->replyMessage($event['replyToken'], "hello!");
 if ($response->isSucceeded()) {
     echo 'Succeeded!';
     return;
