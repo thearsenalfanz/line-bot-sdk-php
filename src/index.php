@@ -4,7 +4,10 @@
 spl_autoload_register(function ($class_name) {
 	$file_name = substr($class_name, 4, -1);
 	$file_name = str_replace($file_name,'\\','/');
-	include $file_name . '.php';
+	var_dump($class_name);
+	echo "<br><br>";
+	var_dump($file_name);
+	// include $file_name . '.php';
 });
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('P3avdIxyxnYbA4xJmyGCWyD2zg5Yi785QZIKdXNajsJV/t8zQKRqfLus2MmwarjTq8jUlLtx1p/YhF+R7tRCv0aQOia3KQhIkPR2PL45xst9NCURrzMXPoVqI0oVFZ1To6tHwSwCeJg0QuXo7HyYuAdB04t89/1O/w1cDnyilFU=');
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => '1f96bb225b40366566a84317e187ae1c']);
