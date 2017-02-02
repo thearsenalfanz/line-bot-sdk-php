@@ -18,10 +18,10 @@
 
 namespace LINE\LINEBot\HTTPClient;
 
-include('/../Constant/Meta.php');
-include('/../Exception/CurlExecutionException.php');
-include('/../HTTPClient.php');
-include('/../Response.php');
+include('./../Constant/Meta.php');
+include('./../Exception/CurlExecutionException.php');
+include('./../HTTPClient.php');
+include('./../Response.php');
 
 use LINE\LINEBot\Constant\Meta;
 use LINE\LINEBot\Exception\CurlExecutionException;
